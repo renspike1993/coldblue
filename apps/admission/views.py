@@ -1,16 +1,18 @@
-from django.contrib.auth import authenticate, login
-from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render
 
-def user_login(request):
-    if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
-        user = authenticate(request, username=username, password=password)
-        
-        if user is not None and not user.is_staff:  # Only non-staff users
-            login(request, user)
-            return redirect('home')
-        else:
-            return render(request, 'auth/login.html', {'error': 'Invalid login'})
-    
+@login_required
+def home(request):
+    return render(request, 'auth/home.html', {
+        'user': request.user,
+    })
+
+
+@login_required
+def logout(request):
     return render(request, 'auth/login.html')
+
+
+@login_required
+def portal(request):
+    return render(request, 'auth/portal.html')

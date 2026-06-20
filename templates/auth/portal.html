@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SchoolPortal · simple</title>
+  <!-- Tailwind via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome icons (clean & minimal) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* subtle, not too colorful */
+    .portal-card {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .portal-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.08);
+    }
+    .bg-soft {
+      background: #f7f9fc;
+    }
+    /* muted nav */
+    .nav-link {
+      color: #4b5563;
+      transition: color 0.15s;
+    }
+    .nav-link:hover {
+      color: #1f2937;
+    }
+    .nav-link-active {
+      color: #1f2937;
+      font-weight: 500;
+      border-bottom: 2px solid #9ca3af;
+    }
+  </style>
+</head>
+<body class="bg-soft font-sans antialiased text-gray-700">
+
+  <!-- top navigation (simple, not colorful) -->
+  <nav class="bg-white border-b border-gray-200/80 shadow-sm sticky top-0 z-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-wrap items-center justify-between py-3">
+        <!-- left: brand + nav links -->
+        <div class="flex items-center gap-6">
+          <div class="flex items-center gap-2 text-gray-700">
+            <i class="fas fa-graduation-cap text-indigo-400 text-lg"></i>
+            <span class="font-semibold text-base tracking-tight">SchoolPortal</span>
+          </div>
+          <div class="hidden md:flex items-center gap-5 text-sm font-medium">
+            <a href="#" class="nav-link nav-link-active">Dashboard</a>
+            <a href="#" class="nav-link">Students</a>
+            <a href="#" class="nav-link">Staff</a>
+            <a href="#" class="nav-link">Classes</a>
+          </div>
+        </div>
+        <!-- right: user + logout (muted) -->
+        <div class="flex items-center gap-4 text-sm">
+          <span class="hidden sm:inline text-gray-500"> Login</span>
+          <a class="text-gray-500 hover:text-gray-700 transition" href=""><i class="fas fa-sign-out-alt"></i></a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- main container -->
+  <div class="max-w-6xl mx-auto px-4 py-6 md:py-10">
+
+    <!-- quick stats (subtle) -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+      <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100/80 flex items-center gap-3 portal-card">
+        <div class="w-10 h-10 rounded-full bg-gray-100 text-gray-600 flex items-center justify-center text-base">
+          <i class="fas fa-user-graduate"></i>
+        </div>
+        <div>
+          <p class="text-xs text-gray-400 uppercase tracking-wider">Students</p>
+          <p class="text-xl font-semibold text-gray-800">1,284</p>
+        </div>
+      </div>
+      <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100/80 flex items-center gap-3 portal-card">
+        <div class="w-10 h-10 rounded-full bg-gray-100 text-gray-600 flex items-center justify-center text-base">
+          <i class="fas fa-chalkboard-user"></i>
+        </div>
+        <div>
+          <p class="text-xs text-gray-400 uppercase tracking-wider">Teachers</p>
+          <p class="text-xl font-semibold text-gray-800">84</p>
+        </div>
+      </div>
+      <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100/80 flex items-center gap-3 portal-card">
+        <div class="w-10 h-10 rounded-full bg-gray-100 text-gray-600 flex items-center justify-center text-base">
+          <i class="fas fa-book-open"></i>
+        </div>
+        <div>
+          <p class="text-xs text-gray-400 uppercase tracking-wider">Courses</p>
+          <p class="text-xl font-semibold text-gray-800">32</p>
+        </div>
+      </div>
+      <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100/80 flex items-center gap-3 portal-card">
+        <div class="w-10 h-10 rounded-full bg-gray-100 text-gray-600 flex items-center justify-center text-base">
+          <i class="fas fa-clock"></i>
+        </div>
+        <div>
+          <p class="text-xs text-gray-400 uppercase tracking-wider">Pending</p>
+          <p class="text-xl font-semibold text-gray-800">9</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- main modules: 3 specific cards + extras -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
+      
+      <!-- 1. Entrance Exam (Guidance) -->
+      <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100/80 portal-card">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="w-10 h-10 rounded-full bg-gray-100 text-gray-600 flex items-center justify-center text-lg">
+            <i class="fas fa-pencil-alt"></i>
+          </span>
+          <span class="text-xs font-medium text-gray-400 uppercase tracking-wider">Guidance</span>
+        </div>
+        <h3 class="text-lg font-bold text-gray-800">Entrance Exam</h3>
+        <p class="text-sm text-gray-500 mt-1 leading-relaxed">Schedule, administer, and review entrance assessments for incoming students.</p>
+        <div class="mt-5 flex items-center gap-4 text-sm">
+          <span class="text-gray-700 font-medium">Upcoming: 12 Apr</span>
+          <span class="text-gray-300">|</span>
+          <span class="text-gray-500">42 candidates</span>
+        </div>
+        <div class="mt-4 pt-4 border-t border-gray-100 text-sm">
+          <a href="#" class="text-gray-600 hover:text-gray-800 font-medium flex items-center gap-1">
+            Open module <i class="fas fa-arrow-right text-xs"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- 2. OPAC (Library) -->
+      <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100/80 portal-card">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="w-10 h-10 rounded-full bg-gray-100 text-gray-600 flex items-center justify-center text-lg">
+            <i class="fas fa-book"></i>
+          </span>
+          <span class="text-xs font-medium text-gray-400 uppercase tracking-wider">Library</span>
+        </div>
+        <h3 class="text-lg font-bold text-gray-800">OPAC</h3>
+        <p class="text-sm text-gray-500 mt-1 leading-relaxed">Search the library catalog, check availability, and manage digital resources.</p>
+        <div class="mt-5 flex items-center gap-4 text-sm">
+          <span class="text-gray-700 font-medium">12,304 items</span>
+          <span class="text-gray-300">|</span>
+          <span class="text-gray-500">28 checkouts</span>
+        </div>
+        <div class="mt-4 pt-4 border-t border-gray-100 text-sm">
+          <a href="#" class="text-gray-600 hover:text-gray-800 font-medium flex items-center gap-1">
+            Open catalog <i class="fas fa-arrow-right text-xs"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- 3. Student Government (Elections) -->
+      <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100/80 portal-card">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="w-10 h-10 rounded-full bg-gray-100 text-gray-600 flex items-center justify-center text-lg">
+            <i class="fas fa-vote-yea"></i>
+          </span>
+          <span class="text-xs font-medium text-gray-400 uppercase tracking-wider">Student Gov</span>
+        </div>
+        <h3 class="text-lg font-bold text-gray-800">Student Elections</h3>
+        <p class="text-sm text-gray-500 mt-1 leading-relaxed">Nominate candidates, vote, and track election results for student council.</p>
+        <div class="mt-5 flex items-center gap-4 text-sm">
+          <span class="text-gray-700 font-medium">Voting open</span>
+          <span class="text-gray-300">|</span>
+          <span class="text-gray-500">until 20 Apr</span>
+        </div>
+        <div class="mt-4 pt-4 border-t border-gray-100 text-sm">
+          <a href="#" class="text-gray-600 hover:text-gray-800 font-medium flex items-center gap-1">
+            Go to elections <i class="fas fa-arrow-right text-xs"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- additional modules (general) in a second row, keeping it simple -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-10">
+      <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100/80 portal-card flex items-center gap-3">
+        <i class="fas fa-user-plus text-gray-400 text-lg w-6"></i>
+        <div>
+          <p class="text-xs text-gray-400 uppercase">Enrollment</p>
+          <p class="text-sm font-medium text-gray-700">New applications</p>
+        </div>
+      </div>
+      <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100/80 portal-card flex items-center gap-3">
+        <i class="fas fa-calendar-alt text-gray-400 text-lg w-6"></i>
+        <div>
+          <p class="text-xs text-gray-400 uppercase">Timetable</p>
+          <p class="text-sm font-medium text-gray-700">Weekly schedule</p>
+        </div>
+      </div>
+      <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100/80 portal-card flex items-center gap-3">
+        <i class="fas fa-file-invoice text-gray-400 text-lg w-6"></i>
+        <div>
+          <p class="text-xs text-gray-400 uppercase">Finance</p>
+          <p class="text-sm font-medium text-gray-700">Fees & invoices</p>
+        </div>
+      </div>
+      <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100/80 portal-card flex items-center gap-3">
+        <i class="fas fa-flag text-gray-400 text-lg w-6"></i>
+        <div>
+          <p class="text-xs text-gray-400 uppercase">Announcements</p>
+          <p class="text-sm font-medium text-gray-700">3 new</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- recent activity (simple, not colorful) -->
+    <div class="bg-white rounded-2xl shadow-sm border border-gray-100/80 p-6">
+      <div class="flex items-center justify-between mb-5">
+        <h2 class="text-base font-semibold text-gray-700 flex items-center gap-2">
+          <i class="far fa-clock text-gray-400"></i> Recent activity
+        </h2>
+        <span class="text-xs bg-gray-100 text-gray-600 px-3 py-1 rounded-full">6 new</span>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
+        <div class="flex items-start gap-3 border-b border-gray-50 pb-3">
+          <span class="w-7 h-7 rounded-full bg-gray-100 text-gray-500 flex items-center justify-center text-xs font-medium">S</span>
+          <div><p class="text-gray-700">Sarah Lee enrolled in Grade 10</p><p class="text-gray-400 text-xs">2 hours ago</p></div>
+        </div>
+        <div class="flex items-start gap-3 border-b border-gray-50 pb-3">
+          <span class="w-7 h-7 rounded-full bg-gray-100 text-gray-500 flex items-center justify-center text-xs font-medium">E</span>
+          <div><p class="text-gray-700">Entrance exam slot added (Apr 12)</p><p class="text-gray-400 text-xs">5 hours ago</p></div>
+        </div>
+        <div class="flex items-start gap-3 border-b border-gray-50 pb-3 md:border-b-0">
+          <span class="w-7 h-7 rounded-full bg-gray-100 text-gray-500 flex items-center justify-center text-xs font-medium">L</span>
+          <div><p class="text-gray-700">Library OPAC updated: 12 new books</p><p class="text-gray-400 text-xs">yesterday</p></div>
+        </div>
+        <div class="flex items-start gap-3">
+          <span class="w-7 h-7 rounded-full bg-gray-100 text-gray-500 flex items-center justify-center text-xs font-medium">G</span>
+          <div><p class="text-gray-700">Student government: candidate list final</p><p class="text-gray-400 text-xs">yesterday</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- footer (very muted) -->
+    <div class="mt-10 pt-5 border-t border-gray-200/70 flex flex-col sm:flex-row justify-between items-center text-xs text-gray-400">
+      <p class="flex items-center gap-1"><i class="fas fa-school text-gray-300"></i> SchoolPortal · simple management</p>
+      <p class="flex items-center gap-3 mt-2 sm:mt-0">
+        <span>2026</span>
+        <span class="w-1 h-1 rounded-full bg-gray-300"></span>
+        <span>v1.0</span>
+        <span class="w-1 h-1 rounded-full bg-gray-300"></span>
+        <span><i class="fas fa-shield-alt text-gray-300"></i> secure</span>
+      </p>
+    </div>
+  </div>
+
+</body>
+</html>
