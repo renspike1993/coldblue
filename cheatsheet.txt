@@ -1,1 +1,8 @@
+
+Cloning
 git clone https://github.com/renspike1993/coldblue.git
+
+
+Pulling
+1. from root cd coldblue
+2. git pull
